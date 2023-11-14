@@ -7,7 +7,9 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity(name = "client")
+
 public class ClientEntity {
+  
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY) // auto increment
   @Column(name = "idClient")
