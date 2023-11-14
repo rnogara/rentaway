@@ -28,6 +28,12 @@ public class ClientController {
     return ResponseEntity.status(200).body(clients);
   }
 
+  @GetMapping("/login")
+  public ResponseEntity<String> login(@RequestParam String email, @RequestParam String password) {
+    clientService.login(email, password);
+    return ResponseEntity.status(200).body("Login successful");
+  }
+
   @PutMapping("/profile/{id}")
   public ResponseEntity<String> updateClient(@RequestBody ClientEntity client) {
     clientService.createOrUpdateClient(client);

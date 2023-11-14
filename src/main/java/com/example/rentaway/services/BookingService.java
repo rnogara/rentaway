@@ -21,7 +21,6 @@ public class BookingService {
     if (clientId != null) {
       bookings = bookingRepository.findByClientId(clientId);
       System.out.println("Booking retrieved");
-      return bookings;
     } else {
       bookings = bookingRepository.findAll();
       System.out.println("Bookings retrieved");
