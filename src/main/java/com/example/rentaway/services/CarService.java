@@ -1,6 +1,5 @@
 package com.example.rentaway.services;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,19 +14,16 @@ public class CarService {
   @Autowired
   private CarRepository carRepository;
 
-  public List<CarEntity> getCars(Boolean availability) {
-    List<CarEntity> cars = new ArrayList<>();
+  public List<CarEntity> getCars() {
+      List<CarEntity> cars = carRepository.findAll();
+      System.out.println("Cars retrieved");
+      return cars;
+  }
 
-    if (availability == true) {
-      cars = carRepository.findByAvailability(availability);
+  public List<CarEntity> getAvailableCars(Boolean availability) {
+      List<CarEntity> cars = carRepository.findByAvailability(availability);
       System.out.println("Available cars retrieved");
       return cars;
-    } else {
-      cars = carRepository.findAll();
-      System.out.println("Cars retrieved");
-    }
-    
-    return cars;
   }
 
   public void createOrUpdateCar(CarEntity car) {
