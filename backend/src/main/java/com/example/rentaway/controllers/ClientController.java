@@ -29,7 +29,7 @@ public class ClientController {
   }
 
   @GetMapping("/login")
-  public ResponseEntity<String> login(@RequestParam String email, @RequestParam String password) {
+  public ResponseEntity<String> login(@RequestBody String email, @RequestBody String password) {
     clientService.login(email, password);
     return ResponseEntity.status(200).body("Login successful");
   }
@@ -41,8 +41,9 @@ public class ClientController {
   }
 
   @DeleteMapping("/profile/{id}")
-  public ResponseEntity<String> deleteClient(@RequestParam Integer id) {
-    clientService.deleteClient(id);
+  public ResponseEntity<String> deleteClient(@PathVariable String id) {
+    Integer idClient = Integer.valueOf(id);
+    clientService.deleteClient(idClient);
     return ResponseEntity.status(200).body("Profile deleted");
   }
 }

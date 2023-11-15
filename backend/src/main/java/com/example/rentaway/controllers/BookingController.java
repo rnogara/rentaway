@@ -16,7 +16,7 @@ public class BookingController {
   @Autowired
   BookingService bookingService;
 
-  @PostMapping("/rent")
+  @PostMapping("/rent/{id}")
   public ResponseEntity<String> createBooking(@RequestBody BookingEntity booking) {
     bookingService.createOrUpdateBooking(booking);
     return ResponseEntity.status(201).body("Booking created");
@@ -29,8 +29,9 @@ public class BookingController {
   }
 
   @GetMapping("/profile/{id}")
-  public ResponseEntity<List<BookingEntity>> getBooking(@RequestParam Integer clientId) {
-    List<BookingEntity> booking = bookingService.getBookings(clientId);
+  public ResponseEntity<List<BookingEntity>> getBooking(@PathVariable String id) {
+    Integer idClient = Integer.valueOf(id);
+    List<BookingEntity> booking = bookingService.getBookings(idClient);
     return ResponseEntity.status(200).body(booking);
   }
 
@@ -40,9 +41,10 @@ public class BookingController {
     return ResponseEntity.status(200).body("Booking updated");
   }
 
-  @DeleteMapping("/profile/{id}")
-  public ResponseEntity<String> deleteBooking(@RequestBody Integer id) {
-    bookingService.deleteBooking(id);
+  @DeleteMapping("/profile/{id}/bookings")
+  public ResponseEntity<String> deleteBooking(@PathVariable String id) {
+    Integer idBooking = Integer.valueOf(id);
+    bookingService.deleteBooking(idBooking);
     return ResponseEntity.status(200).body("Booking deleted");
   }
 }

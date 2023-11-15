@@ -15,11 +15,11 @@ public class BookingService {
   @Autowired
   private BookingRepository bookingRepository;
 
-  public List<BookingEntity> getBookings(Integer clientId) {
+  public List<BookingEntity> getBookings(Integer idClient) {
     List<BookingEntity> bookings = new ArrayList<>();
 
-    if (clientId != null) {
-      bookings = bookingRepository.findByClientId(clientId);
+    if (idClient != null) {
+      bookings = bookingRepository.findByIdClient(idClient);
       System.out.println("Booking retrieved");
     } else {
       bookings = bookingRepository.findAll();

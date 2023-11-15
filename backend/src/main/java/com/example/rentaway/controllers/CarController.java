@@ -24,11 +24,11 @@ public class CarController {
 
   @GetMapping
   public ResponseEntity<List<CarEntity>> getCars() {
-    List<CarEntity> cars = carService.getCars(null);
+    List<CarEntity> cars = carService.getCars(false);
     return ResponseEntity.status(200).body(cars);
   }
 
-  @GetMapping("/rent")
+  @GetMapping("/rent/{id}")
   public ResponseEntity<List<CarEntity>> getAvailableCars() {
     List<CarEntity> cars = carService.getCars(true);
     return ResponseEntity.status(200).body(cars);

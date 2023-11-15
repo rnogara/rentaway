@@ -7,6 +7,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity(name = "car")
+@Table(name = "car")
 public class CarEntity {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY) // auto increment

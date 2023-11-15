@@ -7,6 +7,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity(name = "booking")
+@Table(name = "booking")
 public class BookingEntity {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY) // auto increment
