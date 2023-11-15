@@ -1,0 +1,25 @@
+header {
+    background-color: #132b1b;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    height: 100px;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 999;
+}
+
+.header-slogan h3 {
+    color:#f0e68c;
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+.header-slogan p {
+    font-weight: 400;
+    font-size: 1rem;
+    margin: -15px 0 0 25px;
+}
