@@ -17,7 +17,7 @@ public class ClientController {
   private ClientService clientService;
   
   @PostMapping("/signup")
-  public ResponseEntity<String> createAcount(@RequestBody ClientEntity client) {
+  public ResponseEntity<String> createAcount(@RequestParam ClientEntity client) {
     clientService.createOrUpdateClient(client);
     return ResponseEntity.status(201).body("Account created");
   }
@@ -29,7 +29,7 @@ public class ClientController {
   }
 
   @GetMapping("/login")
-  public ResponseEntity<String> login(@RequestBody String email, @RequestBody String password) {
+  public ResponseEntity<String> login(@RequestHeader String email, @RequestHeader String password) {
     clientService.login(email, password);
     return ResponseEntity.status(200).body("Login successful");
   }
