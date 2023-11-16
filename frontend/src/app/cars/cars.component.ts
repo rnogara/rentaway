@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CarsService } from './cars.service';
 import { Car } from './car';
@@ -9,9 +9,10 @@ import { Car } from './car';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './cars.component.html',
-  styleUrl: './cars.component.css'
+  styleUrl: './cars.component.css',
+  providers: [CarsService]
 })
-export class CarsComponent {
+export class CarsComponent implements OnInit {
   constructor(private carsService:CarsService){};
 
   car: Car = new Car();
@@ -19,7 +20,7 @@ export class CarsComponent {
   cars: Car[] = [];
 
   ngOnInit(): void {
-    this.carsService.recuperarCarros().subscribe(
+    this.carsService.getCars().subscribe(
       resposta => {
         this.cars = resposta;
       },

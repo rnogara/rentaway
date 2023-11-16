@@ -1,4 +1,11 @@
-<main>
-  <p>home works!</p>
-  <app-cars></app-cars>
+<main class="home-wrapper">
+  <section class="home-cars">
+    <h2>These are our cars</h2>
+    <app-cars></app-cars>
+  </section>
+  <section class="home-client">
+    <p>Already have an account?<p>
+    <button onclick="window.location.href = '/login'">Login</button>
+    <button onclick="window.location.href = '/signup'">If not, register here</button>
+  </section>
 </main>

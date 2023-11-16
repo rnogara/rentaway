@@ -1,5 +1,6 @@
 .icon {
   background-size: cover;
+  border: none;
   display: inline-block;
   margin: 20px 30px;
   height: 50px;
@@ -7,15 +8,28 @@
 }
 
 .home-btn {
+  background-color: transparent;
   background-image: url("../../assets/icons/home_FILL0_wght400_GRAD0_opsz24.svg");
   filter: invert(94%) sepia(11%) saturate(1659%) hue-rotate(343deg) brightness(106%) contrast(88%);
 }
 
+.home-btn:hover {
+  cursor: pointer;
+  filter: invert(100%) sepia(100%) saturate(13%) hue-rotate(220deg) brightness(103%) contrast(103%);
+}
+
 .profile-btn {
+  background-color: transparent;
   background-image: url("../../assets/icons/face_FILL0_wght400_GRAD0_opsz24.svg");
   filter: invert(94%) sepia(11%) saturate(1659%) hue-rotate(343deg) brightness(106%) contrast(88%);
 }
 
-.icon:hover {
+.profile-btn:disabled {
+  cursor: not-allowed;
+  filter: invert(26%) sepia(43%) saturate(0%) hue-rotate(195deg) brightness(89%) contrast(89%);
+}
+
+.icon:enabled:hover {
+  cursor: pointer;
   filter: invert(100%) sepia(100%) saturate(13%) hue-rotate(220deg) brightness(103%) contrast(103%);
 }
