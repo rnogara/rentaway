@@ -6,20 +6,22 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import com.example.rentaway.dto.LoginDto;
 import com.example.rentaway.entities.ClientEntity;
 import com.example.rentaway.services.ClientService;
 
 @RestController
 @RequestMapping
+@CrossOrigin("*")
 public class ClientController {
   
   @Autowired
   private ClientService clientService;
   
   @PostMapping("/signup")
-  public ResponseEntity<String> createAcount(@RequestBody ClientEntity client) {
-    clientService.createOrUpdateClient(client);
-    return ResponseEntity.status(201).body("Account created");
+  public ResponseEntity<ClientEntity> createAcount(@RequestBody ClientEntity client) {
+    ClientEntity response = clientService.createOrUpdateClient(client);
+    return ResponseEntity.status(201).body(response);
   }
 
   @GetMapping("/admin/clients")
@@ -29,9 +31,9 @@ public class ClientController {
   }
 
   @PostMapping("/login")
-  public ResponseEntity<String> login(@RequestBody String email, @RequestBody String password) {
-    clientService.login(email, password);
-    return ResponseEntity.status(200).body("Login successful");
+  public ResponseEntity<ClientEntity> login(@RequestBody LoginDto loginDto) {
+    ClientEntity client = clientService.login(loginDto);
+    return ResponseEntity.status(200).body(client);
   }
 
   @PutMapping("/profile/{id}")

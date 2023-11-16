@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.example.rentaway.dto.LoginDto;
 import com.example.rentaway.entities.ClientEntity;
 import com.example.rentaway.repositories.ClientRepository;
 
@@ -20,11 +21,11 @@ public class ClientService {
     return clients;
   }
 
-  public ClientEntity login(String email, String password) {
-    List<ClientEntity> clients = clientRepository.findByEmail(email);
-    if (!clients.isEmpty() && clients.get(0).getPassword().equals(password)) {
+  public ClientEntity login(LoginDto loginDto) {
+    List<ClientEntity> client = clientRepository.findByEmail(loginDto.email());
+    if (!client.isEmpty() && client.get(0).getPassword().equals(loginDto.password())) {
       System.out.println("Login successful");
-      return clients.get(0);
+      return client.get(0);
     } else {
       System.out.println("Login failed");
       return null;

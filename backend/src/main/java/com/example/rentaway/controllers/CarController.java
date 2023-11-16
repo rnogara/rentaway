@@ -11,6 +11,7 @@ import com.example.rentaway.services.CarService;
 
 @RestController
 @RequestMapping
+@CrossOrigin("*")
 public class CarController {
   
   @Autowired
