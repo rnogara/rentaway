@@ -29,6 +29,12 @@ public class CarService {
     return cars;
   }
 
+  public CarEntity getCar(Integer id) {
+    CarEntity car = carRepository.findById(id).get();
+    System.out.println("Car retrieved");
+    return car;
+  }
+
   public void createOrUpdateCar(CarEntity car) {
     carRepository.save(car);
     System.out.println("Car created");

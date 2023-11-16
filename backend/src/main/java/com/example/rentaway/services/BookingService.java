@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.rentaway.entities.BookingEntity;
+import com.example.rentaway.entities.CarEntity;
 import com.example.rentaway.repositories.BookingRepository;
 
 @Service
@@ -14,6 +15,7 @@ public class BookingService {
 
   @Autowired
   private BookingRepository bookingRepository;
+  private CarService carService;
 
   public List<BookingEntity> getBookings(Integer idClient) {
     List<BookingEntity> bookings = new ArrayList<>();
@@ -31,6 +33,8 @@ public class BookingService {
 
   public void createOrUpdateBooking(BookingEntity booking) {
     bookingRepository.save(booking);
+    CarEntity car = carService.getCar(booking.getIdCar());
+    car.setAvailability(false);
     System.out.println("Booking created");
   }
 

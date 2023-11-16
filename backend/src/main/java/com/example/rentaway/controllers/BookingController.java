@@ -42,10 +42,9 @@ public class BookingController {
     return ResponseEntity.status(200).body("Booking updated");
   }
 
-  @DeleteMapping("/profile/{id}/bookings")
-  public ResponseEntity<String> deleteBooking(@PathVariable String id) {
-    Integer idBooking = Integer.valueOf(id);
-    bookingService.deleteBooking(idBooking);
+  @DeleteMapping("/profile/{id}/bookings/{idBooking}")
+  public ResponseEntity<String> deleteBooking(@PathVariable String idBooking) {
+    bookingService.deleteBooking(Integer.valueOf(idBooking));
     return ResponseEntity.status(200).body("Booking deleted");
   }
 }
