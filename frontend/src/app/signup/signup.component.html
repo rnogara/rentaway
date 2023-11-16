@@ -1,0 +1,13 @@
+<main class="signup-wrapper">
+  <input type="text" placeholder="Name" [(ngModel)] = "name"/>
+  <input type="email" placeholder="Email" [(ngModel)] = "email"/>
+  <input type="password" placeholder="Password" [(ngModel)] = "password"/>
+  <button 
+    type="button"
+    label="SignUp"
+    [disabled]="name == '' || email == '' || password == '' "
+    (click)="signup(name, email, password)"
+  >
+  SingUp
+  </button>
+</main>

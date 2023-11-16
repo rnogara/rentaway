@@ -1,0 +1,12 @@
+<main class="login-wrapper">
+  <input type="email" placeholder="Email" [(ngModel)] = "email"/>
+  <input type="password" placeholder="Password" [(ngModel)] = "password"/>
+  <button 
+    type="button"
+    label="Login"
+    [disabled]="email == '' || password == '' "
+    (click)="login(email, password)"
+  >
+  Login
+  </button>
+</main>
