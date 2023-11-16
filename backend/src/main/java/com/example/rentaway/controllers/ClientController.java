@@ -17,7 +17,7 @@ public class ClientController {
   private ClientService clientService;
   
   @PostMapping("/signup")
-  public ResponseEntity<String> createAcount(@RequestParam ClientEntity client) {
+  public ResponseEntity<String> createAcount(@RequestBody ClientEntity client) {
     clientService.createOrUpdateClient(client);
     return ResponseEntity.status(201).body("Account created");
   }
