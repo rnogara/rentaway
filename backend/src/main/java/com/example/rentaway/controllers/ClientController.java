@@ -30,6 +30,7 @@ public class ClientController {
 
   @GetMapping("/login")
   public ResponseEntity<String> login(@RequestHeader String email, @RequestHeader String password) {
+    System.out.println(email, password);
     clientService.login(email, password);
     return ResponseEntity.status(200).body("Login successful");
   }
