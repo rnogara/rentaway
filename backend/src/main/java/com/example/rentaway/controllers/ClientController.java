@@ -28,9 +28,8 @@ public class ClientController {
     return ResponseEntity.status(200).body(clients);
   }
 
-  @GetMapping("/login")
-  public ResponseEntity<String> login(@RequestHeader String email, @RequestHeader String password) {
-    System.out.println(email, password);
+  @PostMapping("/login")
+  public ResponseEntity<String> login(@RequestBody String email, @RequestBody String password) {
     clientService.login(email, password);
     return ResponseEntity.status(200).body("Login successful");
   }
