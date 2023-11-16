@@ -20,18 +20,21 @@ public class ClientService {
     return clients;
   }
 
-  public void login(String email, String password) {
+  public ClientEntity login(String email, String password) {
     List<ClientEntity> clients = clientRepository.findByEmail(email);
     if (!clients.isEmpty() && clients.get(0).getPassword().equals(password)) {
       System.out.println("Login successful");
+      return clients.get(0);
     } else {
       System.out.println("Login failed");
+      return null;
     }
   }
   
-  public void createOrUpdateClient(ClientEntity client) {
+  public ClientEntity createOrUpdateClient(ClientEntity client) {
     clientRepository.save(client);
     System.out.println("Client created");
+    return client;
   }
 
   public void deleteClient(Integer id) {
