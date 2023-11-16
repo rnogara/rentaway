@@ -42,8 +42,8 @@ public class CarController {
   }
 
   @DeleteMapping("/admin/cars")
-  public ResponseEntity<String> deleteCar(@RequestBody Integer id) {
-    carService.deleteCar(id);
+  public ResponseEntity<String> deleteCar(@RequestParam String idCar) {
+    carService.deleteCar(Integer.valueOf(idCar));
     return ResponseEntity.status(200).body("Car deleted");
   }
 }
