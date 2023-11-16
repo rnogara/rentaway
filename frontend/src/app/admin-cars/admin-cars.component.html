@@ -1,1 +1,9 @@
-<p>admin-cars works!</p>
+<div *ngFor="let car of cars; index as i">
+  <strong>{{car.model}}</strong>
+  <p>R${{car.pricePerDay}} per day</p>
+  <p>Year: {{car.manufactureYear}}</p>
+  <p>Color: {{car.color}}</p>
+  <p>License Plate: {{car.licensePlate}}</p>
+  <p>Available: {{car.availability}}</p>
+  <button (click)="car.id !== null ? deleteCar(car.id) : null" [disabled]="!car.availability">Delete</button>
+</div>

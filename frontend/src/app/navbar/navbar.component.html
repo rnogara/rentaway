@@ -1,7 +1,7 @@
 <div>
   <button onclick="window.location.href = '/'" class="icon home-btn"></button>
   <button
-    onclick="window.location.href = '/profile/' + clientId"
+    (click)="profileBtn()"
     class="icon profile-btn"
     [disabled] = "!clientId"
   >

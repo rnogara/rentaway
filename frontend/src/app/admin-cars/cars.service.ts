@@ -15,4 +15,8 @@ export class CarsService {
   public getCars(): Observable<Car[]> {
     return this.http.get<any>(this.url);
   }
+
+  public deleteCar(idCar: number): Observable<any> {
+    return this.http.delete<any>(this.url + 'admin/cars', {params: {idCar: String(idCar)}});
+  }
 }

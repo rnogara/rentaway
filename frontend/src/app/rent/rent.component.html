@@ -1,1 +1,15 @@
-<p>rent works!</p>
+<main class="rent-wrapper">
+  <h1>Choose your car</h1>
+  <form [formGroup]="rentForm" (ngSubmit)="submit()">
+    <select formControlName="idCar">
+      <option *ngFor="let car of cars; index as i">{{car.model}} - R${{car.pricePerDay}} per day</option>
+    </select>
+    <label>Rent Start Date</label>
+    <input type="date" formControlName="startDate" [ngModel]="startDate | date:'yyyy-MM-dd'"  (ngModelChange)="startDate = $event"  name="startDate">
+    <input type="date" formControlName="endDate" [ngModel]="endDate | date:'yyyy-MM-dd'"  (ngModelChange)="endDate = $event"  name="endDate">
+    <button>
+      Confirmar
+    </button>
+  </form>
+  <p>Your final price is: R${{totalPrice}}</p>
+</main>

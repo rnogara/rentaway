@@ -1,18 +1,18 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
-import { Car } from "./car";
+import { Book } from "./book";
 
 @Injectable({
   providedIn: 'root'
 })
 
-export class CarsService {
+export class BookingsService {
   constructor(private http:HttpClient) {}
 
   private url = 'http://localhost:8080/';
 
-  public getCars(): Observable<Car[]> {
-    return this.http.get<any>(this.url);
+  public book(idClient: string, book: Book): Observable<any> {
+    return this.http.post<any>(this.url + 'rent/' + idClient, book);
   }
 }

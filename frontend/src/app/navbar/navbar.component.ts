@@ -16,4 +16,8 @@ export class NavbarComponent {
       this.clientId = JSON.parse(window.localStorage.getItem('clientId') || 'null');
     }
   }
+
+  profileBtn(): void {
+    window.location.href = '/profile/' + this.clientId;
+  } 
 }

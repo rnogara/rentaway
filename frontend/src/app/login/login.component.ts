@@ -27,11 +27,12 @@ export class LoginComponent {
     this.clientsService.login(email, password).subscribe(
       resposta => {
         this.client = resposta;
-        if (this.client.id == null) {
+        if (this.client.id == null || this.client.name == null) {
           alert("Incorrect email or password.");
           return;
         }
         window.localStorage.setItem('clientId', this.client.id);
+        window.localStorage.setItem('clientName', this.client.name);
         window.location.href = '/profile/' + this.client.id;
       },
       error => {
