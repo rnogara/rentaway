@@ -15,13 +15,13 @@ O Sistema de Aluguel de Carros é uma aplicação desenvolvida para o Bootcamp d
 
 ## Tecnologias Utilizadas
 
-### Backend (Java)
+### Backend (Java v11)
 
 - Spring Boot
 - Hibernate
 - Maven
 
-### Frontend (Angular)
+### Frontend (Angular v17)
 
 - Angular CLI
 - TypeScript
